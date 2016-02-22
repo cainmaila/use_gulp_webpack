@@ -4,8 +4,7 @@ module.exports = {
     // devtool: "source-map",
     // entry: './src/demo.js',
     entry: {
-        app:'./src/demo.js',
-        app2:'./src/demo2.js'
+        app:'./src/demo.js'
     },
     output: {
         // path: path.join(__dirname, 'build'),
