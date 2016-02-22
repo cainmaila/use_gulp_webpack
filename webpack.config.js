@@ -1,11 +1,17 @@
 var path = require('path');
 
 module.exports = {
-    entry: './src/demo.js',
+    // devtool: "source-map",
+    // entry: './src/demo.js',
+    entry: {
+        app:'./src/demo.js',
+        app2:'./src/demo2.js'
+    },
     output: {
         // path: path.join(__dirname, 'build'),
         path: path.join(__dirname, 'www', 'js'),
-        filename: 'bundle.js'
+        // filename: 'bundle.js'
+        filename: '[name].js'
     },
     module: {
         loaders: [{
