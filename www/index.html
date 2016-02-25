@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Index</title>
+	<meta charset="UTF-8">
+	<title>JS</title>
 </head>
-
 <body>
-    <div id="demo"></div>
-    <div id="demo2"></div>
+	<div id="output">
+		loading...
+	</div> 
 </body>
-<!-- <script src="js/bundle.js"></script> -->
 <script src="js/vendors.js"></script>
-<script src="js/app.js"></script>
-<!-- <script src="js/app2.js"></script> -->
+<script>
+	var output = $('#output');
+	window.printLog = function (log) {
+		output.html("輸出:"+log);
+		return "js return "+log+" !!";
+	}
+	output.html("載入完成 請call window.printLog()");
+</script>
 </html>

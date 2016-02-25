@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var bower_components = path.resolve(__dirname, 'bower_components');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     // devtool: "source-map",
     // entry: './src/demo.js',
@@ -11,7 +12,7 @@ module.exports = {
         // path: path.join(__dirname, 'build'),
         path: path.join(__dirname, 'www', 'js'),
         // filename: 'app.js'
-        filename: '[name].js',
+        filename: '[hash:8][name].js',
         publicPath: "js/"
     },
     resolve: {
@@ -33,6 +34,12 @@ module.exports = {
         }]
     },
     plugins: [
+        new HtmlWebpackPlugin(), // Generates default index.html 
+        new HtmlWebpackPlugin({ // Also generate a test.html 
+            filename: 'test.html',
+            title:"cain test",
+            template: 'www/tmp.ejs'
+        })
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'app2',
         //     filename: "app2.js",
