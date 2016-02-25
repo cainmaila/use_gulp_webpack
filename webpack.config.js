@@ -22,6 +22,7 @@ module.exports = {
         // }
     },
     module: {
+        noParse: [],
         loaders: [{
             loader: "babel-loader",
             test: /\.js$/,
@@ -37,9 +38,14 @@ module.exports = {
         new HtmlWebpackPlugin(), // Generates default index.html 
         new HtmlWebpackPlugin({ // Also generate a test.html 
             filename: 'test.html',
-            title:"cain test",
+            title: "cain test",
             template: 'www/tmp.ejs'
-        })
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+        }),
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'app2',
         //     filename: "app2.js",
