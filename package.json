@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "webpack"
+    "test": "webpack",
+    "dev":"pm2 start app/app.js & gulp"
   },
   "repository": {
     "type": "git",
