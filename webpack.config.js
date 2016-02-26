@@ -6,7 +6,8 @@ module.exports = {
     // devtool: "source-map",
     // entry: './src/demo.js',
     entry: {
-        app: './src/demo.js'
+        app: './src/demo.js',
+        // vendors:[bower_components+'/jquery/dist/jquery.min.js',bower_components+'d3/d3.min.js']
     },
     output: {
         // path: path.join(__dirname, 'build'),

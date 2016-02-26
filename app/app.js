@@ -1,9 +1,9 @@
 var express = require('express');
-
+var path = require('path');
 var app = express();
 
-app.use(express.static('www'));
+app.use(express.static(path.join(__dirname, '..','www')));
 
-app.listen(80,function () {
-	console.log("run 80 port!!");
+app.listen(8000,function () {
+	console.log("run 8000 port!!");
 });

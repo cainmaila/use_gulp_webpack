@@ -2,12 +2,30 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
 	<title>JS</title>
+	<style>
+		#bn{
+			width: 30%;
+			height: 100px;
+			color: #fff;
+			background-color: #000;
+			text-align: center;
+			line-height: 100px;
+		}
+	</style>
 </head>
 <body>
 	<div id="output">
 		loading...
-	</div> 
+	</div>
+	<div id="bn">
+		click me to call android4Js.showString()
+	</div>
 </body>
 <script src="js/vendors.js"></script>
 <script>
@@ -16,6 +34,11 @@
 		output.html("輸出:"+log);
 		return "js return "+log+" !!";
 	}
+	var ff=window.android4Js?'Click Me':'找不到window.android4Js物件';
+	$('#bn').html()
+	$('#bn').click(function(){
+		window.android4Js.showString("js click !!");
+	})
 	output.html("載入完成 請call window.printLog()");
 </script>
 </html>

@@ -3,7 +3,8 @@ var webpack = require('webpack-stream');
 var gulpLivereload = require('gulp-livereload');
 var gulpUglify = require('gulp-uglify');
 var flatten = require('gulp-flatten');
-var concat = require('gulp-concat'); 
+var concat = require('gulp-concat');
+var nodemon = require('gulp-nodemon'); 
 gulp.task('copy', function() {
 	// return gulp.src(['bower_components/**/dist/*.min.js','bower_components/**/*.min.js'])
 	return gulp.src(['bower_components/**/dist/*.min.js','bower_components/**/*.min.js'])
@@ -23,4 +24,12 @@ gulp.task('watch', function() {
 	gulpLivereload.listen();
 	gulp.watch('src/*.js', ['scripts']);
 });
-gulp.task('default', ['scripts', 'watch']);
+
+gulp.task('app_dev', function () {
+  nodemon({ script: 'app/app.js'})
+    .on('restart', function () {
+      console.log('restarted!')
+    })
+})
+
+gulp.task('default', ['app_dev','scripts', 'watch']);
