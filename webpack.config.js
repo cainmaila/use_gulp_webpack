@@ -38,7 +38,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin(), // Generates default index.html 
         new HtmlWebpackPlugin({ // Also generate a test.html 
-            filename: 'test.html',
+            filename: '../test.html', 
             title: "cain test",
             template: 'www/tmp.ejs'
         }),

@@ -22,11 +22,24 @@ gulp.task('scripts', function() {
 });
 gulp.task('watch', function() {
 	gulpLivereload.listen();
-	gulp.watch('src/*.js', ['scripts']);
+	gulp.watch(['src/*.js','www/*.ejs'], ['scripts']);
 });
 
+// nodemon 的配置
+var nodemonConfig = {
+    script : 'app/app.js',
+    ignore : [
+        "bower_components/**",
+        "less/**",
+        "www/**"
+    ],
+    env    : {
+        "NODE_ENV": "development"
+    }
+};
+
 gulp.task('app_dev', function () {
-  nodemon({ script: 'app/app.js'})
+  nodemon(nodemonConfig)
     .on('restart', function () {
       console.log('restarted!')
     })
