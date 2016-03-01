@@ -4,16 +4,22 @@ var gulpLivereload = require('gulp-livereload');
 var gulpUglify = require('gulp-uglify');
 var flatten = require('gulp-flatten');
 var concat = require('gulp-concat');
-var nodemon = require('gulp-nodemon'); 
+var nodemon = require('gulp-nodemon');
+var del = require('del');
 gulp.task('copy', function() {
 	// return gulp.src(['bower_components/**/dist/*.min.js','bower_components/**/*.min.js'])
 	return gulp.src(['bower_components/**/dist/*.min.js','bower_components/**/*.min.js'])
 		.pipe(flatten())
 		.pipe(concat('vendors.js'))
-		.pipe(gulp.dest('www/js'));
+		.pipe(gulp.dest('www/js'));b
 });
-
-gulp.task('scripts', function() {
+gulp.task('clear', function() {
+    return del([
+            'www/js/*.js',
+            '!www/js/vendors.js'
+        ]);
+});
+gulp.task('scripts',['clear'], function() {
 	return gulp.src('./xxx.js') //隨便打
 		.pipe(webpack(require('./webpack.config.js')))
 		// .pipe(gulpUglify())
@@ -37,6 +43,7 @@ var nodemonConfig = {
         "NODE_ENV": "development"
     }
 };
+                              
 
 gulp.task('app_dev', function () {
   nodemon(nodemonConfig)
