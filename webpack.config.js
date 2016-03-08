@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var bower_components = path.resolve(__dirname, 'bower_components');
 module.exports = {
-    // devtool: "source-map",
+    devtool: "source-map",
     entry: {
         app: './src/demo.js',
         // vendors:[bower_components+'/jquery/dist/jquery.min.js',bower_components+'/d3/d3.min.js']
@@ -29,14 +29,17 @@ module.exports = {
         }, {
             test: /\.less$/,
             loader: 'style!css!less'
+        }, {
+            test: /\.html$/,
+            loader: 'raw'
         }]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false
+        //     },
+        // }),
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'vendors',
         //     filename: "vendors.js",

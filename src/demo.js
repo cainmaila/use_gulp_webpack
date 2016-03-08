@@ -24,3 +24,8 @@ class DemoClass {
 	}
 	// methods
 }
+
+import ModeView from './mod_demo.js';
+// var ModeView = require('./mod_demo.js');
+new ModeView('mod_a',$);
+// console.log(ModeView.default);
