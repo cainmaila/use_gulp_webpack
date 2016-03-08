@@ -8,7 +8,7 @@ var nodemon = require('gulp-nodemon');
 var del = require('del');
 var ejs = require("gulp-ejs");
 var ver;
-gulp.task('copy', function() {
+gulp.task('x3core', function() {
     // return gulp.src(['bower_components/**/dist/*.min.js','bower_components/**/*.min.js'])
     return gulp.src(['bower_components/**/dist/*.min.js', 'bower_components/**/*.min.js'])
         .pipe(flatten())

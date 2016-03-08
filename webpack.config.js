@@ -8,9 +8,8 @@ module.exports = {
         // vendors:[bower_components+'/jquery/dist/jquery.min.js',bower_components+'/d3/d3.min.js']
     },
     output: {
-        // path: path.join(__dirname, 'build'),
-        path: path.join(__dirname, 'build'),
-        // filename: 'app.js'
+        path: path.join(__dirname, 'www','js'),
+        publicPath:'js/',
         filename: '[name].js'
     },
     resolve: {
